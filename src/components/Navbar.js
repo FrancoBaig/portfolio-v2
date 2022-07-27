@@ -14,8 +14,8 @@ function Navbar() {
     return (
         <div className="flex justify-end">
             <div className="flex gap-x-4">
-                {sections.map((opt) => (
-                    <Section text={opt} />
+                {sections.map((opt, index) => (
+                    <Section key={index} text={opt} />
                 ))}
             </div>
         </div>
