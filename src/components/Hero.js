@@ -1,45 +1,44 @@
 import React from "react";
 
+// Icons
 import linkedinIconBlue from "../assets/icons/linkedinIconBlue.svg";
 import githubIcon from "../assets/icons/githubIcon.svg";
 import { MailIcon } from "@heroicons/react/solid";
 
-const HeroText = ({ user }) => {
-    return (
-        <div>
-            <div className="h-2 bg-blue rounded-full w-1/3 mb-6"></div>
-            <h2 className="text-white text-6xl font-bold mb-2">{user.name}</h2>
-            <h3 className="text-grey text-4xl font-bold mb-6">{user.title}</h3>
-            <p className="text-white text-base w-2/3">{user.description}</p>
-            <div className="flex align-center absolute bottom-0 left-0">
-                <a href={user.urls.linkedin}>
-                    <img src={linkedinIconBlue} alt="linkedin" />
-                </a>
-                <a href={user.urls.github}>
-                    <img src={githubIcon} className="w-12" alt="github" />
-                </a>
-                <a href={user.urls.email}>
-                    <MailIcon
-                        className="w-11 h-11 pt-1 text-blue"
-                        alt="email"
-                    />
-                </a>
-            </div>
-        </div>
-    );
-};
-
 function Hero({ data }) {
     return (
-        <div className="grid gap-10 grid-cols-3 mt-8">
+        <div className="grid grid-cols-2 gap-4 mt-8 md:gap-6 lg:grid-cols-3 lg:gap-8">
             <img
                 src={data.img.normal}
                 alt="profile"
-                className="w-4/5 justify-self-end rounded "
+                className="rounded justify-self-end sm:w-72"
             />
-            <div className="col-span-2 relative">
-                <HeroText user={data} />
+            <div className="relative lg:col-span-2">
+                <div className="h-2 bg-blue rounded-full mb-2 md:w-3/6 "></div>
+                <h2 className="text-white font-bold text-lg sd:text-2xl sm:text-4xl lg:text-6xl">
+                    {data.name}
+                </h2>
+                <h3 className="text-grey font-bold text-sm sd:text-lg sm:text-2xl lg:text-4xl">
+                    {data.title}
+                </h3>
+                <p className="hidden mt-4 text-white text-base text-base sm:inline-block md:w-3/4 lg:w-3/6">
+                    {data.description}
+                </p>
+                <div className="flex align-center absolute bottom-0 left-0">
+                    <a href={data.urls.linkedin}>
+                        <img src={linkedinIconBlue} alt="linkedin" />
+                    </a>
+                    <a href={data.urls.github}>
+                        <img src={githubIcon} className="w-12" alt="github" />
+                    </a>
+                    <a href={data.urls.email}>
+                        <MailIcon className="w-11 h-11 pt-1 text-blue" />
+                    </a>
+                </div>
             </div>
+            <p className="text-white text-base col-span-2 text-sm text-center sm:hidden">
+                {data.description}
+            </p>
         </div>
     );
 }
