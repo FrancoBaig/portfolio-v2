@@ -5,9 +5,19 @@ import linkedinIconBlue from "../assets/icons/linkedinIconBlue.svg";
 import githubIcon from "../assets/icons/githubIcon.svg";
 import { MailIcon } from "@heroicons/react/solid";
 
+// Parallax
+import { useParallax } from "react-scroll-parallax";
+
 function Hero({ data }) {
+    const { ref } = useParallax({
+        speed: -18,
+    });
+
     return (
-        <div className="grid grid-cols-2 gap-4 mt-8 md:gap-6 lg:grid-cols-3 lg:gap-8">
+        <div
+            ref={ref}
+            className="grid grid-cols-2 gap-4 translate-y-20 md:translate-y-0 md:gap-6 lg:grid-cols-3 lg:gap-8"
+        >
             <img
                 src={data.img.normal}
                 alt="profile"
