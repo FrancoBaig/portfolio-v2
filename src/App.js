@@ -8,6 +8,7 @@ import bwprofile from "./assets/img/bwprofile.png";
 // Components
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
+import About from "./components/About";
 
 const data = {
     img: {
@@ -27,16 +28,20 @@ const data = {
         github: "...",
         email: "...",
     },
+    sections: ["About", "Projects", "Skills", "Education", "Contact"],
 };
 
 function App() {
     return (
-        <div className="bg-grey-dark h-screen p-5 flex justify-center">
-            <div className="max-w-7xl">
-                <Navbar />
-                <Hero data={data} />
+        <>
+            <div className="bg-grey-dark">
+                <div className="max-w-7xl w-full h-screen p-5">
+                    <Navbar sections={data.sections} />
+                    <Hero data={data} />
+                </div>
+                <About data={data} />
             </div>
-        </div>
+        </>
     );
 }
 
