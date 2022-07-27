@@ -24,5 +24,4 @@ yarn-error.log*
 
 .prettierrc
 
-
-assets/
+img/
