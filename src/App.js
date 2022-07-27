@@ -1,11 +1,14 @@
-import './App.css';
+import "./App.css";
+
+// Components
+import Navbar from "./components/Navbar";
 
 function App() {
-  return (
-    <h1 className="text-3xl font-bold underline">
-      Hello world!
-    </h1>
-  );
+    return (
+        <div className="bg-grey-dark h-screen p-5">
+            <Navbar />
+        </div>
+    );
 }
 
 export default App;
