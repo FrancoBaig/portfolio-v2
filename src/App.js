@@ -2,8 +2,8 @@ import React from "react";
 import "./App.css";
 
 // Image
-import profileremovebg from "./assets/profileremovebg.png";
-import bwprofile from "./assets/bwprofile.png";
+import profileremovebg from "./assets/img/profileremovebg.png";
+import bwprofile from "./assets/img/bwprofile.png";
 
 // Components
 import Navbar from "./components/Navbar";
