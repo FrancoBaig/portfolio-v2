@@ -12,10 +12,11 @@ module.exports = {
             },
         },
         colors: {
-            blue: "#1C4F82",
-            white: "#D4D4D4",
-            "grey-dark": "#212121",
-            grey: "#7A7A7A",
+            blue: "#0071ad",
+            white: "#ffffff",
+            "grey-dark": "#1a1a1a",
+            grey: "#bababa",
+            black: "#0f0f0f",
         },
         screens: {
             sd: "500px",
