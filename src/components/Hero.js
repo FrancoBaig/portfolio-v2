@@ -1,12 +1,31 @@
 import React from "react";
 
+// Motion
+import { motion } from "framer-motion";
+
 // Icons
 import linkedinIconBlue from "../assets/icons/linkedinIconBlue.svg";
-import githubIcon from "../assets/icons/githubIcon.svg";
-import { MailIcon } from "@heroicons/react/solid";
+import githubIconBlue from "../assets/icons/githubIconBlue.svg";
+import mailIconBlue from "../assets/icons/mailIconBlue.png";
 
 // Parallax
 import { useParallax } from "react-scroll-parallax";
+
+const Icon = ({ url, delay = 0, children }) => {
+    const animationStart = { opacity: 0, scale: 0.5 };
+    const animationEnd = { opacity: 1, scale: 1 };
+
+    return (
+        <motion.a
+            href={url}
+            initial={animationStart}
+            animate={animationEnd}
+            transition={{ duration: 1, delay: delay }}
+        >
+            {children}
+        </motion.a>
+    );
+};
 
 function Hero({ data }) {
     const { ref } = useParallax({
@@ -34,16 +53,28 @@ function Hero({ data }) {
                 <p className="hidden mt-4 text-white text-base text-base sm:inline-block md:w-3/4 lg:w-3/6">
                     {data.description}
                 </p>
-                <div className="flex align-center absolute bottom-0 left-0">
-                    <a href={data.urls.linkedin}>
-                        <img src={linkedinIconBlue} alt="linkedin" />
-                    </a>
-                    <a href={data.urls.github}>
-                        <img src={githubIcon} className="w-12" alt="github" />
-                    </a>
-                    <a href={data.urls.email}>
-                        <MailIcon className="w-11 h-11 pt-1 text-blue" />
-                    </a>
+                <div className="flex align-center absolute bottom-0 left-0 gap-3">
+                    <Icon url={data.urls.linkedin} delay={0}>
+                        <img
+                            src={linkedinIconBlue}
+                            className="w-12"
+                            alt="linkedin"
+                        />
+                    </Icon>
+                    <Icon url={data.urls.github} delay={0.3}>
+                        <img
+                            src={githubIconBlue}
+                            className="w-12"
+                            alt="github"
+                        />
+                    </Icon>
+                    <Icon url={data.urls.github} delay={0.3}>
+                        <img
+                            src={mailIconBlue}
+                            className="w-12 rounded-3xl "
+                            alt="mail"
+                        />
+                    </Icon>
                 </div>
             </div>
             <p className="text-white text-base col-span-2 text-sm text-center sm:hidden">
