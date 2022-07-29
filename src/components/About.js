@@ -1,4 +1,7 @@
-import React from "react";
+import React, { useRef } from "react";
+
+// Motion
+import { motion } from "framer-motion";
 
 // Parallax
 import { Parallax } from "react-scroll-parallax";
@@ -6,43 +9,50 @@ import { Parallax } from "react-scroll-parallax";
 const icons = [
     {
         icon: "🐕‍🦺",
-        props: "top-1/3 right-1/3 -translate-y-32",
+        props: "top-1/3 right-1/3 -mr-60",
         speed: -10,
     },
-    { icon: "🐈", props: "top-1/3 right-1/3 translate-x-36", speed: 10 },
+    { icon: "🐈", props: "top-1/3 right-1/3 -mt-20", speed: 10 },
     {
         icon: "💻",
-        props: "top-2/3 right-2/3 -translate-x-20 -translate-y-38",
+        props: "top-2/3 right-2/3 mr-40 mt-20",
         speed: -10,
     },
     {
         icon: "🏋️‍♀️",
-        props: "top-3/4 right-1/3 -translate-x-16 -translate-y-40",
+        props: "top-3/4 right-1/3 mr-24 mt-20",
         speed: 10,
     },
     {
         icon: "📕",
-        props: "top-1/2 right-3/4 -translate-x-20 -translate-y-60",
+        props: "top-1/2 right-3/4 mr-20",
         speed: -10,
     },
     {
         icon: "🦔",
-        props: "top-1/2 right-2/3 -translate-x-64",
+        props: "top-1/2 right-2/3 -mt-48",
         speed: 10,
     },
-    { icon: "⚡", props: "top-1/2 right-1/3 translate-x-40", speed: -10 },
+    { icon: "⚡", props: "top-1/2 right-1/3 mt-10", speed: -10 },
 ];
 
 function About({ data }) {
+    const constraintsRef = useRef(null);
+
     return (
-        <div className="h-screen bg-white pt-14 flex justify-center relative">
+        <motion.div
+            ref={constraintsRef}
+            className="h-screen bg-white pt-14 flex justify-center relative overflow-hidden py-8"
+        >
             {icons.map((icon) => (
-                <span
+                <motion.div
                     key={icon.icon}
-                    className={`absolute text-3xl ${icon.props}`}
+                    className={`absolute text-3xl cursor-grab ${icon.props}`}
+                    drag
+                    dragConstraints={constraintsRef}
                 >
                     <Parallax speed={icon.speed}>{icon.icon}</Parallax>
-                </span>
+                </motion.div>
             ))}
             <div className="flex flex-col items-center max-w-xl">
                 <h4 className="text-3xl font-bold pt-16 mb-12">About</h4>
@@ -71,7 +81,7 @@ function About({ data }) {
                     </p>
                 </div>
             </div>
-        </div>
+        </motion.div>
     );
 }
 
