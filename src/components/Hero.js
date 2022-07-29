@@ -12,16 +12,16 @@ import mailIconBlue from "../assets/icons/mailIconBlue.png";
 import { useParallax } from "react-scroll-parallax";
 
 const Icon = ({ url, delay = 0, children }) => {
-    const animationStart = { opacity: 0, scale: 0.5 };
-    const animationEnd = { opacity: 1, scale: 1 };
+    const itemAnimation = {
+        hidden: { y: 20, opacity: 0 },
+        visible: {
+            y: 0,
+            opacity: 1,
+        },
+    };
 
     return (
-        <motion.a
-            href={url}
-            initial={animationStart}
-            animate={animationEnd}
-            transition={{ duration: 1, delay: delay }}
-        >
+        <motion.a href={url} variants={itemAnimation}>
             {children}
         </motion.a>
     );
@@ -31,6 +31,18 @@ function Hero({ data }) {
     const { ref } = useParallax({
         speed: -18,
     });
+
+    const containerAnimation = {
+        hidden: { opacity: 1, scale: 0 },
+        visible: {
+            opacity: 1,
+            scale: 1,
+            transition: {
+                delayChildren: 0.3,
+                staggerChildren: 0.2,
+            },
+        },
+    };
 
     return (
         <div
@@ -53,7 +65,12 @@ function Hero({ data }) {
                 <p className="hidden mt-4 text-white text-base text-base sm:inline-block md:w-3/4 lg:w-3/6">
                     {data.description}
                 </p>
-                <div className="flex align-center absolute bottom-0 left-0 gap-3">
+                <motion.div
+                    variants={containerAnimation}
+                    initial="hidden"
+                    animate="visible"
+                    className="flex align-center absolute bottom-0 left-0 gap-3"
+                >
                     <Icon url={data.urls.linkedin} delay={0}>
                         <img
                             src={linkedinIconBlue}
@@ -75,7 +92,7 @@ function Hero({ data }) {
                             alt="mail"
                         />
                     </Icon>
-                </div>
+                </motion.div>
             </div>
             <p className="text-white text-base col-span-2 text-sm text-center sm:hidden">
                 {data.description}
