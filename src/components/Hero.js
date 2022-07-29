@@ -11,7 +11,7 @@ import mailIconBlue from "../assets/icons/mailIconBlue.png";
 // Parallax
 import { useParallax } from "react-scroll-parallax";
 
-const Icon = ({ url, delay = 0, children }) => {
+const Icon = ({ url, children }) => {
     const itemAnimation = {
         hidden: { y: 20, opacity: 0 },
         visible: {
@@ -55,7 +55,12 @@ function Hero({ data }) {
                 className="rounded justify-self-end sm:w-72"
             />
             <div className="relative lg:col-span-2">
-                <div className="h-2 bg-blue rounded-full mb-2 md:w-3/6 "></div>
+                <motion.div
+                    initial={{ width: 0 }}
+                    animate={{ width: "30%" }}
+                    transition={{ duration: 0.9 }}
+                    className="h-2 bg-blue rounded-full mb-2 md:w-3/6 "
+                ></motion.div>
                 <h2 className="text-white font-bold text-lg sd:text-2xl sm:text-4xl lg:text-6xl">
                     {data.name}
                 </h2>
