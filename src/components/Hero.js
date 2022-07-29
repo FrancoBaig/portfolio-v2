@@ -76,21 +76,21 @@ function Hero({ data }) {
                     animate="visible"
                     className="flex align-center absolute bottom-0 left-0 gap-3"
                 >
-                    <Icon url={data.urls.linkedin} delay={0}>
+                    <Icon url={data.urls.linkedin}>
                         <img
                             src={linkedinIconBlue}
                             className="w-12"
                             alt="linkedin"
                         />
                     </Icon>
-                    <Icon url={data.urls.github} delay={0.3}>
+                    <Icon url={data.urls.github}>
                         <img
                             src={githubIconBlue}
                             className="w-12"
                             alt="github"
                         />
                     </Icon>
-                    <Icon url={data.urls.github} delay={0.3}>
+                    <Icon url={data.urls.github}>
                         <img
                             src={mailIconBlue}
                             className="w-12 rounded-3xl "
