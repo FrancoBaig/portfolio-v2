@@ -6,36 +6,6 @@ import { motion } from "framer-motion";
 // Parallax
 import { Parallax } from "react-scroll-parallax";
 
-const icons = [
-    {
-        icon: "🐕‍🦺",
-        props: "top-1/3 right-1/3 -mr-60",
-        speed: -10,
-    },
-    { icon: "🐈", props: "top-1/3 right-1/3 -mt-20", speed: 10 },
-    {
-        icon: "💻",
-        props: "top-2/3 right-2/3 mr-40 mt-20",
-        speed: -10,
-    },
-    {
-        icon: "🏋️‍♀️",
-        props: "top-3/4 right-1/3 mr-24 mt-20",
-        speed: 10,
-    },
-    {
-        icon: "📕",
-        props: "top-1/2 right-3/4 mr-20",
-        speed: -10,
-    },
-    {
-        icon: "🦔",
-        props: "top-1/2 right-2/3 -mt-48",
-        speed: 10,
-    },
-    { icon: "⚡", props: "top-1/2 right-1/3 mt-10", speed: -10 },
-];
-
 function About({ data }) {
     const constraintsRef = useRef(null);
 
@@ -44,7 +14,7 @@ function About({ data }) {
             ref={constraintsRef}
             className="h-screen bg-white pt-14 flex justify-center relative overflow-hidden py-8"
         >
-            {icons.map((icon) => (
+            {data.emojis.map((icon) => (
                 <motion.div
                     key={icon.icon}
                     className={`absolute text-3xl cursor-grab ${icon.props}`}
