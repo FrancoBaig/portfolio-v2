@@ -7,14 +7,14 @@ import Skills from "./components/Skills";
 import About from "./components/About";
 import Hero from "./components/Hero";
 
+// Spinner
+import SyncLoader from "react-spinners/SyncLoader";
+
 // Data
 import useFetch from "./services/useFetch";
 
 function App() {
     const { data, loading } = useFetch();
-
-    console.log(data);
-
     return (
         <div className="bg-grey-dark">
             {!loading && data !== null ? (
@@ -32,7 +32,9 @@ function App() {
                     </div>
                 </>
             ) : (
-                <h1>loading...</h1>
+                <div className="w-full h-screen flex justify-center items-center">
+                    <SyncLoader size="10" color="#bababa" />
+                </div>
             )}
         </div>
     );
