@@ -50,7 +50,7 @@ function Hero({ data }) {
             className="grid grid-cols-2 gap-4 translate-y-20 md:translate-y-0 md:gap-6 lg:grid-cols-3 lg:gap-8"
         >
             <img
-                src={data.img.normal}
+                src={data.img}
                 alt="profile"
                 className="rounded justify-self-end sm:w-72"
             />

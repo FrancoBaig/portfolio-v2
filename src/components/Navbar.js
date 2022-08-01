@@ -36,7 +36,9 @@ const sidebar = {
     },
 };
 
-function Navbar({ sections }) {
+const sections = ["About", "Projects", "Skills", "Education", "Contact"];
+
+function Navbar() {
     const [isOpen, setIsOpen] = useState(false);
     const containerRef = useRef(null);
     const { height } = useDimensions(containerRef);

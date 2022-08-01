@@ -74,37 +74,9 @@ const Project = ({ project, setItem }) => {
     );
 };
 
-const projects = [
-    {
-        id: 1,
-        title: "Thullo",
-        sub: "Trello Clone",
-        img: "https://i.imgur.com/qCvAItV.png",
-        code: "",
-        demo: "",
-        video: "https://res.cloudinary.com/francobaigorria/video/upload/c_crop,co_rgb:000000,h_452,w_1024/v1659118989/portfolio/2022-07-29_15-20-46_xmuty8.mp4",
-    },
-    {
-        id: 2,
-        title: "Proyect 2",
-        sub: "Trello 2",
-        img: "https://i.imgur.com/qCvAItV.png",
-        code: "",
-        demo: "",
-        video: "https://res.cloudinary.com/francobaigorria/video/upload/c_crop,co_rgb:000000,h_452,w_1024/v1659118989/portfolio/2022-07-29_15-20-46_xmuty8.mp4",
-    },
-    {
-        id: 3,
-        title: "Proyect 3",
-        sub: "Trello 3",
-        img: "https://i.imgur.com/qCvAItV.png",
-        code: "",
-        demo: "",
-        video: "https://res.cloudinary.com/francobaigorria/video/upload/c_crop,co_rgb:000000,h_452,w_1024/v1659118989/portfolio/2022-07-29_15-20-46_xmuty8.mp4",
-    },
-];
 
-function Projects() {
+
+function Projects({ projects }) {
     const [item, setItem] = useState(null);
 
     return (
