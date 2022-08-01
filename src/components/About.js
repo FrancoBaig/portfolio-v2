@@ -50,12 +50,15 @@ function About({ data }) {
                     className={`absolute text-3xl cursor-grab ${icon.props}`}
                     drag
                     dragConstraints={constraintsRef}
+                    whileDrag={{
+                        scale: 1.1,
+                    }}
                 >
                     <Parallax speed={icon.speed}>{icon.icon}</Parallax>
                 </motion.div>
             ))}
             <div className="flex flex-col items-center max-w-xl">
-                <h4 className="text-3xl font-bold pt-16 mb-12">About</h4>
+                <h4 className="title">About</h4>
                 <div className="my-8 px-4 sm:px-0">
                     <h2 className="text-grey font-bold text-sm sd:text-lg sm:text-2xl lg:text-4xl">
                         Full-Stack Developer Jr
