@@ -24,7 +24,7 @@ const item = {
 
 const Skill = ({ skill }) => {
     return (
-        <Parallax speed={15}>
+        <Parallax speed={13}>
             <div>
                 <motion.div
                     variants={item}

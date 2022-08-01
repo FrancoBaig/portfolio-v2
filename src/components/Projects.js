@@ -8,7 +8,7 @@ import Modal from "./Modal";
 
 const containerHover = {
     rest: {},
-    hover: { scale: 1.05 },
+    hover: { scale: 1.03 },
 };
 
 const itemHover = {
@@ -108,7 +108,7 @@ function Projects() {
     const [item, setItem] = useState(null);
 
     return (
-        <div className="h-fir md:h-screen text-white p-5 flex flex-col">
+        <div className="h-fit md:h-screen text-white p-5 flex flex-col">
             <h2 className="title self-center">My favorites projects</h2>
             <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-3">
                 {projects.map((proj) => (
