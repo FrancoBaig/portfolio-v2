@@ -2,18 +2,17 @@ import React from "react";
 import "./App.css";
 
 // Image
-import profileremovebg from "./assets/img/profileremovebg.png";
 import bwprofile from "./assets/img/bwprofile.png";
 
 // Components
+import Projects from "./components/Projects";
 import Navbar from "./components/Navbar";
-import Hero from "./components/Hero";
 import About from "./components/About";
+import Hero from "./components/Hero";
 
 const data = {
     img: {
         normal: bwprofile,
-        bgRemoved: profileremovebg,
     },
     name: "Franco Baigorria",
     title: "Full-Stack Developer",
@@ -35,11 +34,14 @@ function App() {
     return (
         <>
             <div className="bg-grey-dark">
-                <div className="max-w-7xl w-full h-screen p-5">
-                    <Navbar sections={data.sections} />
-                    <Hero data={data} />
+                <div className="flex flex-col items-center">
+                    <div className="max-w-7xl w-full pb-80 md:pb-0 md:h-screen p-5">
+                        <Navbar sections={data.sections} />
+                        <Hero data={data} />
+                    </div>
                 </div>
                 <About data={data} />
+                <Projects data={data} />
             </div>
         </>
     );
