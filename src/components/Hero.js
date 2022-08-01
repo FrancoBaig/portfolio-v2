@@ -11,15 +11,27 @@ import mailIconBlue from "../assets/icons/mailIconBlue.png";
 // Parallax
 import { useParallax } from "react-scroll-parallax";
 
-const Icon = ({ url, children }) => {
-    const itemAnimation = {
-        hidden: { y: 20, opacity: 0 },
-        visible: {
-            y: 0,
-            opacity: 1,
-        },
-    };
+const itemAnimation = {
+    hidden: { y: 20, opacity: 0 },
+    visible: {
+        y: 0,
+        opacity: 1,
+    },
+};
 
+const containerAnimation = {
+    hidden: { opacity: 1, scale: 0 },
+    visible: {
+        opacity: 1,
+        scale: 1,
+        transition: {
+            delayChildren: 0.3,
+            staggerChildren: 0.2,
+        },
+    },
+};
+
+const Icon = ({ url, children }) => {
     return (
         <motion.a href={url} variants={itemAnimation}>
             {children}
@@ -31,18 +43,6 @@ function Hero({ data }) {
     const { ref } = useParallax({
         speed: -18,
     });
-
-    const containerAnimation = {
-        hidden: { opacity: 1, scale: 0 },
-        visible: {
-            opacity: 1,
-            scale: 1,
-            transition: {
-                delayChildren: 0.3,
-                staggerChildren: 0.2,
-            },
-        },
-    };
 
     return (
         <div
