@@ -10,14 +10,14 @@ module.exports = {
             fontFamily: {
                 sans: ["Inter var", ...defaultTheme.fontFamily.sans],
             },
-        },
-        colors: {
-            blue: "#0071ad",
-            white: "#ffffff",
-            "grey-dark": "#1a1a1a",
-            grey: "#bababa",
-            black: "#0f0f0f",
-            backdrop: "rgba(0,0,0,0.5)",
+            colors: {
+                blue: "#0071ad",
+                white: "#ffffff",
+                "grey-dark": "#1a1a1a",
+                grey: "#bababa",
+                black: "#0f0f0f",
+                backdrop: "rgba(0,0,0,0.5)",
+            },
         },
         screens: {
             sd: "500px",
