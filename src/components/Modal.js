@@ -10,8 +10,8 @@ import { motion, AnimatePresence } from "framer-motion";
 import { XIcon } from "@heroicons/react/outline";
 
 const backdrop = {
-    visible: { opacity: 1 },
     hidden: { opacity: 0 },
+    visible: { opacity: 1 },
 };
 
 function Modal({ item, onClose }) {
@@ -30,7 +30,7 @@ function Modal({ item, onClose }) {
                         className="h-fit bg-white py-2 rounded w-full relative md:w-fit"
                     >
                         <XIcon
-                            className="text-black w-5 absolute top-2 right-3 z-40"
+                            className="text-black w-5 absolute top-2 right-3 z-40 cursor-pointer"
                             onClick={() => onClose(null)}
                         />
 
