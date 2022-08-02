@@ -19,21 +19,19 @@ function App() {
         <div className="bg-grey-dark">
             {!loading && data !== null ? (
                 <>
-                    <div>
-                        <div className="flex flex-col items-center">
-                            <div className="max-w-7xl w-full pb-80 md:pb-0 md:h-screen p-5">
-                                <Navbar sections={data.sections} />
-                                <Hero data={data} />
-                            </div>
+                    <div className="flex flex-col items-center">
+                        <div className="max-w-7xl w-full pb-80 md:pb-0 md:h-screen p-5">
+                            <Navbar sections={data.sections} />
+                            <Hero data={data} />
                         </div>
-                        <About data={data} />
-                        <Projects projects={data.projects} />
-                        <Skills skills={data.skills} />
                     </div>
+                    <About data={data} />
+                    <Projects projects={data.projects} />
+                    <Skills skills={data.skills} />
                 </>
             ) : (
                 <div className="w-full h-screen flex justify-center items-center">
-                    <SyncLoader size="10" color="#bababa" />
+                    <SyncLoader size="12px" color="#bababa" />
                 </div>
             )}
         </div>
