@@ -8,17 +8,15 @@ import { Parallax } from "react-scroll-parallax";
 
 function About({ data }) {
     const constraintsRef = useRef(null);
-    console.log(data);
-
     return (
         <motion.div
             ref={constraintsRef}
             id="about"
-            className="relative w-full h-screen bg-white pt-14 flex justify-center  overflow-hidden py-8"
+            className="h-screen bg-white pt-14 flex justify-center relative overflow-hidden py-8"
         >
-            {data.emojis.map((icon, index) => (
+            {data.emojis.map((icon) => (
                 <motion.div
-                    key={index}
+                    key={icon.icon}
                     className={`absolute text-3xl cursor-grab ${icon.props}`}
                     drag
                     dragConstraints={constraintsRef}
@@ -29,7 +27,7 @@ function About({ data }) {
                     <Parallax speed={icon.speed}>{icon.icon}</Parallax>
                 </motion.div>
             ))}
-            {/* <div className="flex flex-col items-center max-w-xl">
+            <div className="flex flex-col items-center max-w-xl">
                 {data.about.map((text, index) => (
                     <div className="flex flex-col items-center" key={index}>
                         <h4 className="title">About</h4>
@@ -43,7 +41,7 @@ function About({ data }) {
                         </div>
                     </div>
                 ))}
-            </div> */}
+            </div>
         </motion.div>
     );
 }
