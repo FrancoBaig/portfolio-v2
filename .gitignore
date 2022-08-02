@@ -24,4 +24,8 @@ yarn-error.log*
 
 .prettierrc
 
+# Images
 img/
+
+# To do
+todo.todo
