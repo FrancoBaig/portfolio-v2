@@ -23,11 +23,11 @@ function Modal({ item, onClose }) {
                     initial="hidden"
                     animate="visible"
                     onClick={() => onClose(null)}
-                    className="fixed top-0 right-0 w-full h-full bg-backdrop z-20 flex items-center justify-center"
+                    className="fixed top-0 right-0 w-full h-full bg-backdrop z-50 flex items-center justify-center"
                 >
                     <motion.div
                         layoutId={item.id}
-                        className="h-fit bg-white py-2 rounded w-full relative md:w-fit"
+                        className="h-fit bg-white py-2 md:p-4 rounded w-full relative md:w-fit"
                     >
                         <XIcon
                             className="text-black w-5 absolute top-2 right-3 z-40 cursor-pointer"
