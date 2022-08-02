@@ -24,16 +24,16 @@ const item = {
 
 const Skill = ({ skill }) => {
     return (
-        <Parallax speed={13}>
+        <Parallax speed={5}>
             <div>
                 <motion.div
                     variants={item}
-                    className="flex flex-col items-center mx-4"
+                    className="flex flex-col gap-4 items-center"
                 >
                     <p className="font-bold sm:text-lg">{skill.title}</p>
                     <img
                         src={skill.img}
-                        className="w-20 sm:w-28"
+                        className="w-20 sm:w-22"
                         alt={skill.title}
                     />
                 </motion.div>
@@ -46,6 +46,8 @@ function Skills({ skills }) {
     const controls = useAnimation();
     const ref = useRef(null);
     const isInView = useInView(ref);
+    const highlighted = skills.filter((el) => el.isHighlighted);
+    const others = skills.filter((el) => !el.isHighlighted);
 
     useEffect(() => {
         if (isInView) {
@@ -56,17 +58,31 @@ function Skills({ skills }) {
     return (
         <div
             id="skills"
-            className="h-screen md:h-screen bg-dark-grey text-white p-5 flex flex-col "
+            className="h-fit bg-dark-grey text-white p-5 flex flex-col py-20"
         >
-            <h2 className="title self-center mb-28">Skills</h2>
+            <h2 className="title self-center my-8 mb-12">Skills</h2>
             <motion.div
                 ref={ref}
                 initial="hidden"
                 animate={controls}
                 variants={container}
-                className="max-w-screen-md mx-auto grid gap-y-4 gap-x-20 grid-cols-2 sm:gap-y-12 sm:grid-cols-4"
+                className="max-w-screen-md mx-auto grid gap-y-4 gap-x-20 grid-cols-2 sm:gap-y-12 sm:grid-cols-5"
             >
-                {skills.map((skill) => (
+                {highlighted.map((skill) => (
+                    <Skill skill={skill} key={skill.id} />
+                ))}
+            </motion.div>
+            <h3 className="title text-grey self-center text-2xl mb-10">
+                Others
+            </h3>
+            <motion.div
+                ref={ref}
+                initial="hidden"
+                animate={controls}
+                variants={container}
+                className="max-w-screen-sm mx-auto grid gap-y-4 gap-x-20 grid-cols-2 sm:gap-y-12 sm:grid-cols-4"
+            >
+                {others.map((skill) => (
                     <Skill skill={skill} key={skill.id} />
                 ))}
             </motion.div>
