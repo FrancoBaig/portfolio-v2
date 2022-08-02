@@ -74,13 +74,14 @@ const Project = ({ project, setItem }) => {
     );
 };
 
-
-
 function Projects({ projects }) {
     const [item, setItem] = useState(null);
 
     return (
-        <div className="h-fit md:h-screen text-white p-5 flex flex-col">
+        <div
+            id="projects"
+            className="h-screen md:h-screen text-white p-5 flex flex-col"
+        >
             <h2 className="title self-center">My favorites projects</h2>
             <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-3">
                 {projects.map((proj) => (

@@ -9,14 +9,6 @@ import { useDimensions } from "../helper/use-dimensios";
 // motion
 import { motion } from "framer-motion";
 
-const Section = ({ text }) => {
-    return (
-        <p className="text-grey font-bold text-xl px-1 rounded hover:text-white cursor-pointer">
-            {text}
-        </p>
-    );
-};
-
 const sidebar = {
     open: (height = 1000) => ({
         clipPath: `circle(${height * 2 + 200}px at 40px 40px)`,
@@ -36,16 +28,31 @@ const sidebar = {
     },
 };
 
-const sections = ["About", "Projects", "Skills", "Education", "Contact"];
+const sections = [
+    { title: "About", id: "#about" },
+    { title: "Projects", id: "#projects" },
+    { title: "Skills", id: "#skills" },
+];
 
-function Navbar() {
+const Section = ({ data }) => {
+    return (
+        <a
+            href={data.id}
+            className="text-grey font-bold text-xl px-1 rounded hover:text-white cursor-pointer"
+        >
+            {data.title}
+        </a>
+    );
+};
+
+function Navbar({ isLeft = true }) {
     const [isOpen, setIsOpen] = useState(false);
     const containerRef = useRef(null);
     const { height } = useDimensions(containerRef);
 
     return (
         <motion.nav
-            className="sm:flex sm:items-center sm:justify-end"
+            className="sm:flex sm:items-center sm:justify-end "
             animate={isOpen ? "open" : "closed"}
             custom={height}
             ref={containerRef}
@@ -71,7 +78,7 @@ function Navbar() {
                 <div className="relative z-30 sm:hidden">
                     <div className="flex flex-col gap-3 ">
                         {sections.map((opt, index) => (
-                            <Section key={index} text={opt} />
+                            <Section key={index} data={opt} />
                         ))}
                     </div>
                 </div>
@@ -81,7 +88,7 @@ function Navbar() {
 
             <div className="hidden sm:flex gap-2">
                 {sections.map((opt, index) => (
-                    <Section key={index} text={opt} />
+                    <Section key={index} data={opt} />
                 ))}
             </div>
         </motion.nav>

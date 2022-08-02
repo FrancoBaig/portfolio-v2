@@ -54,7 +54,10 @@ function Skills({ skills }) {
     }, [controls, isInView]);
 
     return (
-        <div className="h-fit md:h-screen bg-dark-grey text-white p-5 flex flex-col ">
+        <div
+            id="skills"
+            className="h-screen md:h-screen bg-dark-grey text-white p-5 flex flex-col "
+        >
             <h2 className="title self-center mb-28">Skills</h2>
             <motion.div
                 ref={ref}
