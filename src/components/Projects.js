@@ -8,6 +8,7 @@ import Modal from "./Modal";
 
 // Helper
 import { classNames } from "../helper/classNames";
+import { projectPosition } from "../helper/projectPosition";
 
 const containerHover = {
     rest: {},
@@ -79,6 +80,8 @@ const ProjectIcons = ({ project, setItem, showVideo }) => {
 };
 
 const Project = ({ project, setItem }) => {
+    const position = projectPosition(project.textPosition - 1);
+
     return (
         <motion.div
             layoutId={project.id}
@@ -101,7 +104,7 @@ const Project = ({ project, setItem }) => {
                 className={classNames(
                     "z-40 md:p-2 rounded",
                     project.isFavorite
-                        ? `md:absolute md:bg-blue/80 md:max-w-sm  ${project.textPosition}`
+                        ? `md:absolute md:bg-blue/80 md:max-w-sm  ${position}`
                         : ""
                 )}
             >
