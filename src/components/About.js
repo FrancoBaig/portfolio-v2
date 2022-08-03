@@ -1,7 +1,7 @@
-import React, { useEffect, useRef } from "react";
+import React, { useRef } from "react";
 
 // Motion
-import { motion, useAnimation, useInView } from "framer-motion";
+import { motion } from "framer-motion";
 
 // Parallax
 import { Parallax } from "react-scroll-parallax";
@@ -17,7 +17,7 @@ function About({ data }) {
             {data.emojis.map((icon) => (
                 <motion.div
                     key={icon.icon}
-                    className={`absolute text-3xl cursor-grab ${icon.props}`}
+                    className={`absolute text-3xl lg:text-4xl cursor-grab ${icon.props}`}
                     drag
                     dragConstraints={constraintsRef}
                     whileDrag={{
@@ -30,12 +30,12 @@ function About({ data }) {
             <div className="flex flex-col items-center max-w-xl">
                 {data.about.map((text, index) => (
                     <div className="flex flex-col items-center" key={index}>
-                        <h4 className="title">About</h4>
+                        <h4 className="title">About me</h4>
                         <div className="my-8 px-4 sm:px-0">
                             <h2 className="text-grey font-bold text-sm sd:text-lg sm:text-2xl lg:text-4xl">
                                 {text.title}
                             </h2>
-                            <p className="mt-4 text-base text-base md:w-10/12 lg:w-full">
+                            <p className="mt-4 text-base md:w-10/12 lg:w-full lg:text-xl">
                                 {text.description}
                             </p>
                         </div>
