@@ -3,6 +3,10 @@
 @tailwind utilities;
 
 @layer components {
+    hmlt {
+        @apply scroll-smooth
+    }
+    
     .btn {
         @apply py-2 px-4 bg-blue text-white font-semibold rounded-lg shadow-md hover:bg-sky-800 focus:outline-none focus:ring-2 focus:bg-sky-700 focus:ring-opacity-75;
     }
