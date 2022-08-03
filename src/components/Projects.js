@@ -22,7 +22,7 @@ const itemHover = {
 const ProjectIcons = ({ project, setItem, showVideo }) => {
     return (
         <div className="flex gap-4 mt-4 w-full z-40">
-            <a href={project.demo}>
+            <a href={project.demo} target="_blank" rel="noreferrer">
                 <motion.svg
                     xmlns="http://www.w3.org/2000/svg"
                     className="w-8"
@@ -39,7 +39,7 @@ const ProjectIcons = ({ project, setItem, showVideo }) => {
                     />
                 </motion.svg>
             </a>
-            <a href={project.code}>
+            <a href={project.code} target="_blank" rel="noreferrer">
                 <motion.svg
                     className="w-8"
                     whileHover={{ scale: 1.05 }}
@@ -86,7 +86,7 @@ const Project = ({ project, setItem }) => {
         >
             <div
                 className={classNames(
-                    "absolute top-0 right-0 w-full h-full bg-blue/70 z-30",
+                    "absolute top-0 right-0 w-full h-full bg-blue/70 z-30 rounded",
                     project.isFavorite ? "md:hidden" : ""
                 )}
             ></div>
@@ -99,9 +99,9 @@ const Project = ({ project, setItem }) => {
 
             <div
                 className={classNames(
-                    "z-40 md:p-2",
+                    "z-40 md:p-2 rounded",
                     project.isFavorite
-                        ? `md:absolute md:bg-blue/80 md:rounded md:max-w-sm  ${project.textPosition}`
+                        ? `md:absolute md:bg-blue/80 md:max-w-sm  ${project.textPosition}`
                         : ""
                 )}
             >
@@ -129,20 +129,24 @@ const Project = ({ project, setItem }) => {
                     alt={project.title}
                     onClick={() => setItem(project)}
                 />
-                <motion.svg
-                    variants={itemHover}
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="h-20 w-20 text-blue z-30 cursor-pointer absolute left-2/4 top-2/4 -translate-x-1/2 -translate-y-1/2"
-                    viewBox="0 0 20 20"
-                    fill="currentColor"
-                    onClick={() => setItem(project)}
-                >
-                    <path
-                        fillRule="evenodd"
-                        d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z"
-                        clipRule="evenodd"
-                    />
-                </motion.svg>
+                {project.isFavorite ? (
+                    <motion.svg
+                        variants={itemHover}
+                        xmlns="http://www.w3.org/2000/svg"
+                        className="h-20 w-20 text-blue z-30 cursor-pointer absolute left-2/4 top-2/4 -translate-x-1/2 -translate-y-1/2"
+                        viewBox="0 0 20 20"
+                        fill="currentColor"
+                        onClick={() => setItem(project)}
+                    >
+                        <path
+                            fillRule="evenodd"
+                            d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z"
+                            clipRule="evenodd"
+                        />
+                    </motion.svg>
+                ) : (
+                    ""
+                )}
             </motion.div>
         </motion.div>
     );
@@ -156,7 +160,7 @@ function Projects({ projects }) {
     return (
         <div
             id="projects"
-            className="h-fit md:h-screen text-white p-5 flex flex-col items-center"
+            className="h-fit text-white p-5 flex flex-col items-center"
         >
             <h2 className="title self-center">My favorites projects</h2>
             <div className="grid gap-12 md:gap-24">
