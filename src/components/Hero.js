@@ -99,8 +99,8 @@ function Hero({ data }) {
                     animate="visible"
                     className="flex align-center absolute bottom-0 left-0 gap-3"
                 >
-                    {iconsArray.map((el) => (
-                        <Icon url={data.urls[el.key]}>
+                    {iconsArray.map((el, index) => (
+                        <Icon url={data.urls[el.key]} key={index}>
                             <img
                                 src={el.icon}
                                 className={el.props}
