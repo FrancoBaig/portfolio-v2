@@ -45,7 +45,7 @@ function About({ data }) {
                     <div className="flex flex-col items-center" key={index}>
                         <h4 className="title">About me</h4>
                         <div className="my-8 px-4 sm:px-0">
-                            <h2 className="text-grey font-bold text-sm sd:text-lg sm:text-2xl lg:text-4xl">
+                            <h2 className="text-grey font-bold text-lg sd:text-lg sm:text-2xl lg:text-4xl">
                                 {text.title}
                             </h2>
                             <p className="mt-4 text-base md:w-10/12 lg:w-full lg:text-xl">
