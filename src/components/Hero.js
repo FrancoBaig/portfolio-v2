@@ -33,11 +33,34 @@ const containerAnimation = {
 
 const Icon = ({ url, children }) => {
     return (
-        <motion.a href={url} variants={itemAnimation}>
+        <motion.a
+            href={url}
+            target="_blank"
+            rel="noreferrer"
+            variants={itemAnimation}
+        >
             {children}
         </motion.a>
     );
 };
+
+const iconsArray = [
+    {
+        key: "linkedin",
+        props: "w-12",
+        icon: linkedinIconBlue,
+    },
+    {
+        key: "github",
+        props: "w-12",
+        icon: githubIconBlue,
+    },
+    {
+        title: "linkedin",
+        props: "rounded-3xl",
+        icon: mailIconBlue,
+    },
+];
 
 function Hero({ data }) {
     const { ref } = useParallax({
@@ -76,27 +99,15 @@ function Hero({ data }) {
                     animate="visible"
                     className="flex align-center absolute bottom-0 left-0 gap-3"
                 >
-                    <Icon url={data.urls.linkedin}>
-                        <img
-                            src={linkedinIconBlue}
-                            className="w-12"
-                            alt="linkedin"
-                        />
-                    </Icon>
-                    <Icon url={data.urls.github}>
-                        <img
-                            src={githubIconBlue}
-                            className="w-12"
-                            alt="github"
-                        />
-                    </Icon>
-                    <Icon url={data.urls.github}>
-                        <img
-                            src={mailIconBlue}
-                            className="w-12 rounded-3xl "
-                            alt="mail"
-                        />
-                    </Icon>
+                    {iconsArray.map((el) => (
+                        <Icon url={data.urls[el.key]}>
+                            <img
+                                src={el.icon}
+                                className={el.props}
+                                alt={el.key}
+                            />
+                        </Icon>
+                    ))}
                 </motion.div>
             </div>
             <p className="text-white text-base col-span-2 text-sm text-center sm:hidden">
