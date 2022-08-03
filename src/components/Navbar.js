@@ -38,7 +38,7 @@ const Section = ({ data }) => {
     return (
         <a
             href={data.id}
-            className="text-grey font-bold text-xl px-1 rounded hover:text-white cursor-pointer"
+            className="text-grey font-bold text-lg px-1 rounded hover:text-white cursor-pointer"
         >
             {data.title}
         </a>
@@ -86,7 +86,7 @@ function Navbar({ isLeft = true }) {
                 ""
             )}
 
-            <div className="hidden sm:flex gap-2">
+            <div className="hidden sm:flex gap-5">
                 {sections.map((opt, index) => (
                     <Section key={index} data={opt} />
                 ))}
