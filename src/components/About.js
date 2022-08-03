@@ -6,6 +6,31 @@ import { motion } from "framer-motion";
 // Parallax
 import { Parallax } from "react-scroll-parallax";
 
+// Helper
+import { addPositionsToIcon } from "../helper/emojiPositions";
+
+const Emojis = ({ emojis, dragConstraints }) => {
+    const newEmojis = addPositionsToIcon(emojis);
+
+    return (
+        <>
+            {newEmojis.map((icon, key) => (
+                <motion.div
+                    key={key}
+                    className={`absolute text-3xl lg:text-4xl cursor-grab ${icon.props}`}
+                    drag
+                    dragConstraints={dragConstraints}
+                    whileDrag={{
+                        scale: 1.1,
+                    }}
+                >
+                    <Parallax speed={icon.speed}>{icon.icon}</Parallax>
+                </motion.div>
+            ))}
+        </>
+    );
+};
+
 function About({ data }) {
     const constraintsRef = useRef(null);
     return (
@@ -14,19 +39,7 @@ function About({ data }) {
             id="about"
             className="h-screen bg-white pt-14 flex justify-center relative overflow-hidden py-8"
         >
-            {data.emojis.map((icon) => (
-                <motion.div
-                    key={icon.icon}
-                    className={`absolute text-3xl lg:text-4xl cursor-grab ${icon.props}`}
-                    drag
-                    dragConstraints={constraintsRef}
-                    whileDrag={{
-                        scale: 1.1,
-                    }}
-                >
-                    <Parallax speed={icon.speed}>{icon.icon}</Parallax>
-                </motion.div>
-            ))}
+            <Emojis emojis={data.emojis} dragConstraints={constraintsRef} />
             <div className="flex flex-col items-center max-w-xl">
                 {data.about.map((text, index) => (
                     <div className="flex flex-col items-center" key={index}>
